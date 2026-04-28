@@ -1,5 +1,6 @@
 package com.easemob.im_flutter_sdk;
 import com.hyphenate.chat.EMMessage;
+import com.hyphenate.chat.EMTextMessageBody;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,6 +42,15 @@ public class HelpTool {
                 }
             }
         }
-        dbMsg.setBody(msg.getBody());
+        if (msg.getBody() instanceof EMTextMessageBody && dbMsg.getBody() instanceof EMTextMessageBody) {
+            EMTextMessageBody msgBody = (EMTextMessageBody) msg.getBody();
+            EMTextMessageBody dbBody = (EMTextMessageBody) dbMsg.getBody();
+            dbBody.setMessage(msgBody.getMessage());
+            if (msgBody.getTargetLanguages() != null && !msgBody.getTargetLanguages().isEmpty()) {
+                dbBody.setTargetLanguages(msgBody.getTargetLanguages());
+            }
+        } else {
+            dbMsg.setBody(msg.getBody());
+        }
     }
 }
