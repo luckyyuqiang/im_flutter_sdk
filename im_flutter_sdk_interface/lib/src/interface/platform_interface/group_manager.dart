@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:im_flutter_sdk_interface/im_flutter_sdk_interface.dart';
 import 'package:im_flutter_sdk_interface/src/interface/manager_mixin.dart';
@@ -246,15 +247,18 @@ class GroupManager with ManagerMixin {
             attributes,
             operatorId,
           );
-        case "onGroupMembersJoined":
-          String groupId = map["groupId"];
-          List<String> members = List.from(map['userIds'] ?? []);
-          element.onAllowListRemovedFromGroup?.call(groupId, members);
           break;
-        case "onGroupMembersExited":
+        case EMGroupChangeEvent.ON_MEMBERS_JOINED:
+          debugPrint("onGroupMembersJoined: $map");
           String groupId = map["groupId"];
           List<String> members = List.from(map['userIds'] ?? []);
-          element.onAllowListRemovedFromGroup?.call(groupId, members);
+          element.onMembersJoinedFromGroup?.call(groupId, members);
+          break;
+        case EMGroupChangeEvent.ON_MEMBERS_EXITED:
+          debugPrint("onGroupMembersExited: $map");
+          String groupId = map["groupId"];
+          List<String> members = List.from(map['userIds'] ?? []);
+          element.onMembersExitedFromGroup?.call(groupId, members);
           break;
       }
     }
