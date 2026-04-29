@@ -42,15 +42,16 @@ public class HelpTool {
                 }
             }
         }
-        if (msg.getBody() instanceof EMTextMessageBody && dbMsg.getBody() instanceof EMTextMessageBody) {
-            EMTextMessageBody msgBody = (EMTextMessageBody) msg.getBody();
-            EMTextMessageBody dbBody = (EMTextMessageBody) dbMsg.getBody();
-            dbBody.setMessage(msgBody.getMessage());
-            if (msgBody.getTargetLanguages() != null && !msgBody.getTargetLanguages().isEmpty()) {
-                dbBody.setTargetLanguages(msgBody.getTargetLanguages());
-            }
-        } else {
-            dbMsg.setBody(msg.getBody());
-        }
+        dbMsg.setBody(msg.getBody());
+        // if (msg.getBody() instanceof EMTextMessageBody && dbMsg.getBody() instanceof EMTextMessageBody) {
+        //     EMTextMessageBody msgBody = (EMTextMessageBody) msg.getBody();
+        //     EMTextMessageBody dbBody = (EMTextMessageBody) dbMsg.getBody();
+        //     dbBody.setMessage(msgBody.getMessage());
+        //     if (msgBody.getTargetLanguages() != null && !msgBody.getTargetLanguages().isEmpty()) {
+        //         dbBody.setTargetLanguages(msgBody.getTargetLanguages());
+        //     }
+        // } else {
+        //     dbMsg.setBody(msg.getBody());
+        // }
     }
 }

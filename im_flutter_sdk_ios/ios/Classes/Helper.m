@@ -22,20 +22,21 @@
     dbMsg.priority = msg.priority;
     dbMsg.deliverOnlineOnly = msg.deliverOnlineOnly;
     dbMsg.ext = msg.ext;
-    if ([msg.body isKindOfClass:[EMTextMessageBody class]] &&
-        [dbMsg.body isKindOfClass:[EMTextMessageBody class]]) {
-        EMTextMessageBody *msgBody = (EMTextMessageBody *)msg.body;
-        EMTextMessageBody *dbBody = (EMTextMessageBody *)dbMsg.body;
-        //EMTextMessageBody *mergedBody = [[EMTextMessageBody alloc] initWithText:msgBody.text];
-        if (msgBody.targetLanguages.count > 0) {
-            dbBody.targetLanguages = msgBody.targetLanguages;
-        } else if (dbBody.targetLanguages.count > 0) {
-            dbBody.targetLanguages = dbBody.targetLanguages;
-        }
-        //dbMsg.body = mergedBody;
-    } else {
-        dbMsg.body = msg.body;
-    }
+    dbMsg.body = msg.body;
+    // if ([msg.body isKindOfClass:[EMTextMessageBody class]] &&
+    //     [dbMsg.body isKindOfClass:[EMTextMessageBody class]]) {
+    //     EMTextMessageBody *msgBody = (EMTextMessageBody *)msg.body;
+    //     EMTextMessageBody *dbBody = (EMTextMessageBody *)dbMsg.body;
+    //     //EMTextMessageBody *mergedBody = [[EMTextMessageBody alloc] initWithText:msgBody.text];
+    //     if (msgBody.targetLanguages.count > 0) {
+    //         dbBody.targetLanguages = msgBody.targetLanguages;
+    //     } else if (dbBody.targetLanguages.count > 0) {
+    //         dbBody.targetLanguages = dbBody.targetLanguages;
+    //     }
+    //     //dbMsg.body = mergedBody;
+    // } else {
+    //     dbMsg.body = msg.body;
+    // }
 }
 
 @end
