@@ -1154,7 +1154,8 @@
         return;
     }
     
-    if(convId == nil || convId.length == 0 || type == EMConversationTypeChatRoom || timestamp <= 0) {
+    //if(convId == nil || convId.length == 0 || type == EMConversationTypeChatRoom || timestamp <= 0)
+    if(convId == nil || convId.length == 0 || timestamp <= 0) {
         EMError *e = [EMError errorWithDescription:@"Invalid parameter" code:EMErrorInvalidParam];
         [weakSelf wrapperCallBack:result
                       channelName:aChannelName
