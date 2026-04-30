@@ -1,4 +1,5 @@
 ## 4.15.3-beta.1
+- 修复 `removeMessagesFromServerWithTs` 无法移除聊天室漫游消息的问题;
 
 ## 4.15.2
 - 修复 `fetchReactionDetail` 获取不存在的Reaction时崩溃的问题;

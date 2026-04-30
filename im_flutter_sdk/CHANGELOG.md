@@ -1,4 +1,6 @@
 ## 4.15.3-beta.1
+- 修复 `onMembersJoinedFromGroup` 和 `onMembersExitedFromGroup` 无法正常触发的问题；
+- 修复 `deleteRemoteMessagesBefore` 在 iOS 上无法移除聊天室漫游消息的问题;
 
 ## 4.15.2
 - 修复被登出时,返回220的错误码无法触发回调的问题;
