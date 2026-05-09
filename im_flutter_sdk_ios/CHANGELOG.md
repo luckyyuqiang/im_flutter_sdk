@@ -1,3 +1,5 @@
+## 4.15.3-beta.2
+
 ## 4.15.3-beta.1
 - 修复 `removeMessagesFromServerWithTs` 无法移除聊天室漫游消息的问题;
 

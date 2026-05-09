@@ -1,3 +1,5 @@
+## 4.15.3-beta.2
+
 ## 4.15.3-beta.1
 - 修复 `onMembersJoinedFromGroup` 和 `onMembersExitedFromGroup` 无法正常触发的问题；
 
